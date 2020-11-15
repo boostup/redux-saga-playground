@@ -7,7 +7,7 @@ import createSagaMiddleware from "redux-saga";
 
 import Counter from "./Counter";
 import reducer from "./reducers";
-import rootSaga from "./sagas";
+import rootSagas from "./sagas/rootSagas";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -16,7 +16,7 @@ const store = createStore(
   reducer,
   applyMiddleware(sagaMiddleware)
 );
-sagaMiddleware.run(rootSaga);
+sagaMiddleware.run(rootSagas);
 
 const action = (type) => store.dispatch({ type });
 
